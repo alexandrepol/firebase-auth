@@ -116,14 +116,27 @@
 
     $('#submitFile').on('click', function(e){
         e.preventDefault();
-        let selectedFile = document.getElementById('pic').files[0];
-        let imagesRef = storageRef.child('images/'+selectedFile.name);
 
-        imagesRef.put(selectedFile).then(function(snapshot) {
+        //File API
+        /*let selectedFile = document.getElementById('pic').files[0];*/
 
-            console.log('Uploaded a blob or file!');
-        });
-    })
+        //Blob
+        let canvas = document.getElementById('canvas');
+        canvas.toBlob(function (blob) {
+
+            var newImg = document.createElement('img');
+            var url = URL.createObjectURL(blob);
+            newImg.src = url;
+            document.body.appendChild(newImg);
+
+            let imagesRef = storageRef.child('images/'+blob.name);
+            imagesRef.put(blob).then(function(snapshot) {
+                console.log('Uploaded a blob or file!');
+            });
+
+        }, 'image/jpeg', 0.1);
+
+    });
 
 
 
