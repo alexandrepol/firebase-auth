@@ -101,15 +101,15 @@
     let storageRef = storage.ref();
 
 
-    document.getElementById("pic").addEventListener("change", function(){
-        let selectedFile = document.getElementById('pic').files[0];
+    document.getElementById("pic").addEventListener("change", function(e){
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('uploadedImg');
-            output.src = reader.result;
+        var ctx = document.getElementById("canvas").getContext('2d');
+        var img = new Image;
+        img.src = URL.createObjectURL(e.target.files[0]);
+        img.onload = function(){
+            ctx.drawImage(img, 0,0, img.width, img.height,0, 0, 400, 300);
         }
-        reader.readAsDataURL(selectedFile);
+
 
     });
 
@@ -120,7 +120,7 @@
         let imagesRef = storageRef.child('images/'+selectedFile.name);
 
         imagesRef.put(selectedFile).then(function(snapshot) {
-            
+
             console.log('Uploaded a blob or file!');
         });
     })
