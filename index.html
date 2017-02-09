@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Livre d'or</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <link href="assets/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Livre d'or : <span id="user-name"></span></h1>
+    <div class="content">
+        <button id="googleSign">Google Signin</button>
+
+    </div>
+
+
+    <h2>Ajouter un commentaire</h2>
+    <form action="">
+        <label for="commentaire">Commentaire :</label>
+        <textarea id="commentaire" name="commentaire"></textarea>
+        <input id="submitCom" type="submit" value="Enregistrer">
+    </form>
+
+    <h2>Ajouter une image</h2>
+    <form action="" id="imgUpload">
+        <label for="pic">Ajouter une image:</label>
+        <input type="file" id="pic" name="pic" accept="image/*">
+        <input id="submitFile" type="submit" value="SEND IMAGES">
+    </form>
+    <img id="uploadedImg" src="" height="200">
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
