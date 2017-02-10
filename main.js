@@ -2,6 +2,18 @@
  * Created by Alex on 09/02/2017.
  */
 
+/*
+ * var = variable, l'élement de la variable peut varier (var a = 'toto'; var a = b ; même pointeur en mémoire)
+ * en Js, on fonctionne par référence
+ * let = pour un élément qui peut varier. Portée de bloc
+ * const = pour un élément constant, permet de créer un point de référence pour être sur que la variable ne change pas d'affectation. Portée de bloc
+ * bloc d'éxécution (if, for, switch, while...)
+ * setter = permet d'affecter des valeurs aux propriétés et faire une manipulation si on le souhaite (ex : toUppercase);
+ * getter = permet de récupérer les propriétés d'un object et faire une manipulation si on le souhaite avec un pré-traitement (ne pas oublier le return);
+ * _ underscore permet de faire un private en Js pour les propriétés (convention)
+ */
+
+
 (function(){
     // Initialize Firebase
     var config = {
@@ -17,12 +29,16 @@
 
     $('.content').on('click', "#googleSign",function () {
         googleSignin();
+
     })
     $('.content').on('click', "#googleSignOut", function () {
         googleSignout();
+
     })
 
     function googleSignin() {
+
+
         firebase.auth()
             .signInWithPopup(provider).then(function(result) {
             var token = result.credential.accessToken;
@@ -116,7 +132,7 @@
 
     $('#submitFile').on('click', function(e){
         e.preventDefault();
-        
+
         //Blob
         let canvas = document.getElementById('canvas');
         canvas.toBlob(function (blob) {
