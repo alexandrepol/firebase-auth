@@ -118,7 +118,7 @@
         e.preventDefault();
 
         //File API
-        /*let selectedFile = document.getElementById('pic').files[0];*/
+
 
         //Blob
         let canvas = document.getElementById('canvas');
@@ -128,8 +128,9 @@
             var url = URL.createObjectURL(blob);
             newImg.src = url;
             document.body.appendChild(newImg);
+            let fileName = document.getElementById('pic').files[0].name;
 
-            let imagesRef = storageRef.child('images/'+blob.name);
+            let imagesRef = storageRef.child('images/'+fileName);
             imagesRef.put(blob).then(function(snapshot) {
                 console.log('Uploaded a blob or file!');
             });
