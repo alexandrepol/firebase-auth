@@ -116,10 +116,7 @@
 
     $('#submitFile').on('click', function(e){
         e.preventDefault();
-
-        //File API
-
-
+        
         //Blob
         let canvas = document.getElementById('canvas');
         canvas.toBlob(function (blob) {
